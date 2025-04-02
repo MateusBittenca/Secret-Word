@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './App.css'
+import StartScreen from './components/StartScreen'
 
 function App() {
 
 
   return (
-    <>
-     <p>teste</p>
-    </>
+    <div className="App">
+        <StartScreen /> 
+    </div>
   )
 }
 
