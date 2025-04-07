@@ -1,7 +1,18 @@
 import './Game.css'
+import { useState, useRef } from 'react'
 
-const Game = ({ verifyLetter, pickedCategory, pickedWord, letters, guessedLetters, wrongLetters,score,guesses }) => 
-    {
+const Game = ({ verifyLetter, pickedCategory, pickedWord, letters, guessedLetters, wrongLetters, score, guesses }) => {
+
+    const [ letter, setLetter ] = useState('')
+    const letterInputRef = useRef(null)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        verifyLetter(letter)
+        setLetter('')
+        letterInputRef.current.focus()
+    }
 
     return (
         <div className='game'>
@@ -14,27 +25,24 @@ const Game = ({ verifyLetter, pickedCategory, pickedWord, letters, guessedLetter
             </h3>
             <p>Você ainda tem {guesses} tentativa(s) </p>
             <div className="wordContainer">
-                {letters.map((letter, i) => (
+                {letters && guessedLetters && letters.map((letter, i) => (
                     guessedLetters.includes(letter) ? (
                         <span key={i} className='letter'>{letter}</span>
                     ) : (
                         <span key={i} className='blankSquare'></span>
                     )
                 ))}
-              
-
-
             </div>
             <div className="letterContainer">
                 <p>Tente adivinhar uma letra da palavra:</p>
-                <form>
-                    <input type="text" name='letter' maxLength='1' required />
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name='letter' maxLength='1' required onChange={(e) => setLetter(e.target.value)} value={letter} ref={letterInputRef} />
                     <button>Jogar!</button>
                 </form>
             </div>
             <div className="wrongLetterContainer">
                 <p>Letras já utilizadas:</p>
-                <span>a,</span>
+                {wrongLetters.length > 0 ? <span>{wrongLetters.join(', ')}</span> : <span>Nenhuma letra utilizada</span>}
             </div>
 
         </div>
