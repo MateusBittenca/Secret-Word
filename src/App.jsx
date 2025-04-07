@@ -1,5 +1,5 @@
-import { useCallback,useEffect,useState } from 'react'
-import {wordList}   from './data/Words'
+import { useCallback, useEffect, useState } from 'react'
+import { wordList } from './data/Words'
 
 import './App.css'
 import StartScreen from './components/StartScreen'
@@ -7,10 +7,10 @@ import Game from './components/Game'
 import GameOver from './components/GameOver'
 
 
-const stages = [ 
-  {id: 0, name: 'Start'},
-  {id: 1, name: 'game'},
-  {id: 2, name: 'End'}
+const stages = [
+  { id: 0, name: 'Start' },
+  { id: 1, name: 'game' },
+  { id: 2, name: 'End' }
 ]
 
 
@@ -22,19 +22,23 @@ function App() {
   const [pickedWord, setPickedWord] = useState('')
   const [pickedCategory, setPickedCategory] = useState('')
   const [letters, setLetters] = useState([])
+  const [guessedLetters, setGuessedLetters] = useState([])
+  const [wrongLetters, setWrongLetters] = useState([])
+  const [quesses, setQuesses] = useState(3)
+  const [score, setScore] = useState(0)
 
-  const pickWordAndCategory = () =>{
+  const pickWordAndCategory = () => {
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
-    
+
     const word = words[category][Math.floor(Math.random() * words[category].length)]
 
-    return {word, category}
+    return { word, category }
   }
 
 
-  const startGame = ()  => {
-    const {word,category} = pickWordAndCategory()
+  const startGame = () => {
+    const { word, category } = pickWordAndCategory()
 
     let letters = word.split('')
     letters = letters.map((l) => l.toLowerCase())
@@ -45,11 +49,11 @@ function App() {
     setPickedWord(word)
     setPickedCategory(category)
     setLetters(letters)
-    
+
     setStage(stages[1].name)
   }
 
-  const verifyLetter = ()  =>{
+  const verifyLetter = () => {
     setStage(stages[2].name)
   }
 
@@ -59,9 +63,18 @@ function App() {
 
   return (
     <div className="App">
-        {stage === 'Start' && <StartScreen startGame={startGame} />}
-        {stage === 'game' &&<Game verifyLetter = {verifyLetter}/>}
-        {stage === 'End' && <GameOver retry ={retry}/>}
+      {stage === 'Start' && <StartScreen startGame={startGame} />}
+      {stage === 'game' && <Game
+        verifyLetter={verifyLetter}
+        pickedWord={pickedWord}
+        pickWordAndCategory={pickedCategory}
+        letters={letters}
+        quessedLetters={guessedLetters}
+        wrongLetters={wrongLetters}
+        quesses={quesses}
+        score={score}
+      />}
+      {stage === 'End' && <GameOver retry={retry} />}
     </div>
   )
 }

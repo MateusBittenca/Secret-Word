@@ -1,12 +1,15 @@
-# React + Vite
+# Secret Word
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Secret Word** é um jogo inspirado no clássico desafio de adivinhar palavras. O objetivo é simples: descobrir a palavra secreta com base em dicas ou tentativas. É uma experiência divertida e desafiadora que testa seu vocabulário e habilidades de dedução.
 
-Currently, two official plugins are available:
+## Como jogar
+1. O jogo apresenta uma palavra secreta que você deve adivinhar.
+2. Você pode tentar letras ou palavras inteiras.
+3. Receba feedback sobre suas tentativas para ajudá-lo a chegar à resposta correta.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Recursos
+- Interface simples e intuitiva.
+- Feedback em tempo real para cada tentativa.
+- Ideal para jogar sozinho ou com amigos.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Divirta-se jogando e desafie-se a descobrir a palavra secreta!
