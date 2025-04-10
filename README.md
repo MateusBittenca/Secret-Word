@@ -12,4 +12,9 @@ O **Secret Word** é um jogo inspirado no clássico desafio de adivinhar palavra
 - Feedback em tempo real para cada tentativa.
 - Ideal para jogar sozinho ou com amigos.
 
-Divirta-se jogando e desafie-se a descobrir a palavra secreta!
+## Tecnologias utilizadas
+- JavaScript
+- HTML
+- CSS
+- Node.js
+- React

@@ -23,9 +23,9 @@ export const wordList = {
         "esmeralda"]
     , Países: ["brasil", "argentina", "frança",
         "espanha", "italia", "alemanha",
-        "canada", "estados-unidos", "japão",
+        "canada", "japão",
         "china", "russia", "india",
-        "australia", "mexico", "sul-africa",
+        "australia", "mexico",
         "suecia", "noruega", "dinamarca",
         "finlandia"]
 }
